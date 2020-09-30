@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cardlinkprint.epsilonnet"
+
+    version="0.01">
+
+    <name>Cardlink Printer</name>
+	<description>A Cordova/Phonegap driver for Cardlink Printers</description>
+    <license>Apache</license>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>    
+
+    <!-- android -->
+    <platform name="android">
+
+		<js-module src="www/CardlinkPrinter.js" name="CardlinkPrinter">
+			<clobbers target="window.CardlinkPrinter" />
+		</js-module>
+		
+      <!-- <config-file target="AndroidManifest.xml" parent="/*"> -->
+         <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+      <!-- </config-file> -->	  
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CardlinkPrinter">
+                <param name="android-package" value="com.cardlinkprint.epsilonnet.CardlinkPrinter" />
+            </feature>
+        </config-file>
+
+         <framework src="src/android/yourFile.gradle" custom="true" type="gradleReference" />
+
+    <resource-file src="libs/spiresdk-debug.aar" target="libs/spiresdk-debug.aar" />
+    </platform>
+	
+	
+	
+</plugin>
